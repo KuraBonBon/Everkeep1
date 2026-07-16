@@ -1,0 +1,10 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Build Everkeep",
+			"type": "shell",
+			"command": "cd app; Remove-Item -Recurse -Force dist,release -ErrorAction SilentlyContinue; npm run electron:build"
+		}
+	]
+}
