@@ -1,0 +1,21 @@
+directories:
+  output: release
+  buildResources: build
+appId: com.everkeep.app
+productName: Everkeep
+files:
+  - filter:
+      - dist/**/*
+      - electron/**/*
+win:
+  target:
+    - target: nsis
+      arch:
+        - x64
+  signAndEditExecutable: false
+nsis:
+  oneClick: false
+  perMachine: false
+  allowToChangeInstallationDirectory: true
+  deleteAppDataOnUninstall: true
+electronVersion: 35.7.5

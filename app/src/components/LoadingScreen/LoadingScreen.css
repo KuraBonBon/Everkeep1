@@ -1,0 +1,115 @@
+/* ── Loading Screen ─────────────────────────────────────────────── */
+.loading-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #0d0f1a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  overflow: hidden;
+}
+
+/* Ambient glow blobs */
+.loading-screen__glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+}
+.loading-screen__glow--1 {
+  width: 400px; height: 400px;
+  top: -120px; left: -100px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.18) 0%, transparent 70%);
+  animation: glow-drift 6s ease-in-out infinite alternate;
+}
+.loading-screen__glow--2 {
+  width: 350px; height: 350px;
+  bottom: -100px; right: -80px;
+  background: radial-gradient(circle, rgba(192, 132, 252, 0.14) 0%, transparent 70%);
+  animation: glow-drift 7s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes glow-drift {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(30px, 20px) scale(1.1); }
+}
+
+/* Icon */
+.loading-screen__icon {
+  color: #818cf8;
+  filter: drop-shadow(0 0 28px rgba(129, 140, 248, 0.5));
+  margin-bottom: 4px;
+}
+
+/* Title — letter-by-letter */
+.loading-screen__title {
+  display: flex;
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  background: linear-gradient(135deg, #818cf8, #c084fc, #818cf8);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-shift 3s ease infinite;
+}
+.loading-screen__space {
+  width: 0.3em;
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Tagline */
+.loading-screen__sub {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.3);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-top: -4px;
+}
+
+/* Progress bar */
+.loading-screen__bar-track {
+  height: 3px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 100px;
+  overflow: hidden;
+  margin-top: 16px;
+}
+.loading-screen__bar {
+  height: 100%;
+  background: linear-gradient(90deg, #818cf8, #c084fc, #818cf8);
+  background-size: 200% 100%;
+  border-radius: 100px;
+  box-shadow: 0 0 16px rgba(129, 140, 248, 0.5);
+  animation: bar-shimmer 1.5s linear infinite;
+}
+
+@keyframes bar-shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Floating particles */
+.loading-screen__particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #818cf8;
+  bottom: 20%;
+  animation: particle-float 3s ease-in-out infinite;
+}
+@keyframes particle-float {
+  0% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-60px) scale(0.6); }
+  100% { transform: translateY(-120px) scale(0); }
+}

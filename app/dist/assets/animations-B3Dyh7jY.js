@@ -1,0 +1,1 @@
+const e={hidden:{opacity:0},visible:{opacity:1,transition:{staggerChildren:.06}}},t={hidden:{opacity:0,y:14},visible:{opacity:1,y:0,transition:{duration:.4}}};export{t as n,e as t};

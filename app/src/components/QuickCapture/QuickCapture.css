@@ -1,0 +1,270 @@
+/* ============================================
+   Quick Capture — Floating Action Button
+   ============================================ */
+
+/* FAB */
+.quick-capture__fab {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 900;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--accent-gradient);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 20px var(--accent-glow), 0 2px 8px rgba(0,0,0,0.3);
+  transition: box-shadow 0.2s ease;
+}
+.quick-capture__fab:hover {
+  box-shadow: 0 6px 28px var(--accent-glow), 0 4px 12px rgba(0,0,0,0.4);
+}
+
+/* Overlay */
+.quick-capture__overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 950;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 28px;
+  background: rgba(0,0,0,0.3);
+  backdrop-filter: blur(2px);
+}
+
+/* Panel */
+.quick-capture__panel {
+  width: 360px;
+  max-height: 80vh;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+}
+
+.quick-capture__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.quick-capture__header h4 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.quick-capture__header button {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: color 0.15s;
+}
+.quick-capture__header button:hover { color: var(--text-primary); }
+
+.quick-capture__title {
+  padding: 0;
+  background: none;
+  border: none;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: 'Playfair Display', serif;
+  color: var(--text-primary);
+}
+.quick-capture__title::placeholder { color: var(--text-muted); }
+
+.quick-capture__content {
+  padding: 8px 0;
+  background: none;
+  border: none;
+  font-size: 13px;
+  color: var(--text-primary);
+  line-height: 1.5;
+  resize: none;
+  font-family: inherit;
+}
+.quick-capture__content::placeholder { color: var(--text-muted); }
+
+.quick-capture__meta {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.quick-capture__course {
+  padding: 5px 10px;
+  border-radius: 16px;
+  font-size: 11px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  cursor: pointer;
+}
+.quick-capture__course option {
+  background: #1e1e2e;
+  color: #e0e0e0;
+}
+
+/* File picker for artifact quick capture */
+.quick-capture__file-picker {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px dashed var(--border-color);
+  background: rgba(255,255,255,0.02);
+  cursor: pointer;
+  font-size: 11px;
+  color: var(--text-muted);
+  transition: all 0.15s;
+}
+.quick-capture__file-picker:hover {
+  border-color: var(--accent-primary);
+  color: var(--text-secondary);
+}
+.quick-capture__file-picker--has-file {
+  border-style: solid;
+  border-color: var(--accent-primary);
+  color: var(--text-primary);
+}
+.quick-capture__file-picker-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+}
+.quick-capture__file-picker-name {
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--text-primary);
+}
+.quick-capture__file-picker-size {
+  font-size: 10px;
+  color: var(--text-muted);
+}
+.quick-capture__file-picker-remove {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 2px;
+  display: flex;
+  border-radius: 4px;
+}
+.quick-capture__file-picker-remove:hover { color: var(--danger); }
+
+.quick-capture__tag-input {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 10px;
+  border-radius: 16px;
+  font-size: 11px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border-color);
+  color: var(--text-muted);
+}
+.quick-capture__tag-input input {
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 11px;
+  color: var(--text-primary);
+  width: 80px;
+}
+.quick-capture__tag-input input::placeholder { color: var(--text-muted); }
+
+.quick-capture__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.quick-capture__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 10px;
+  font-weight: 600;
+  background: color-mix(in srgb, var(--accent-primary) 12%, transparent);
+  color: var(--accent-primary);
+}
+.quick-capture__tag button {
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+}
+
+.quick-capture__save {
+  padding: 8px 16px;
+  border-radius: var(--radius-md);
+  font-size: 13px;
+  font-weight: 600;
+  background: var(--accent-gradient);
+  color: white;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 2px 8px var(--accent-glow);
+  transition: all 0.15s;
+}
+.quick-capture__save:hover { box-shadow: 0 4px 16px var(--accent-glow); transform: translateY(-1px); }
+.quick-capture__save:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+/* Mode tabs */
+.quick-capture__tabs {
+  display: flex;
+  gap: 4px;
+  padding: 2px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+}
+.quick-capture__tab {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 5px 6px;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  transition: all 0.15s;
+}
+.quick-capture__tab:hover { color: var(--text-secondary); background: rgba(255, 255, 255, 0.04); }
+.quick-capture__tab--active {
+  color: var(--accent-primary);
+  background: rgba(129, 140, 248, 0.12);
+}
+
+/* Row layout for side-by-side fields */
+.quick-capture__row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.quick-capture__row input { flex: 1; }
+.quick-capture__row select { flex-shrink: 0; }

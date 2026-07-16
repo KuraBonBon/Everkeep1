@@ -1,0 +1,66 @@
+/* ============================================
+   Insights Page — Activity Patterns & AI
+   ============================================ */
+
+.insights { position: relative; z-index: 1; max-width: 1200px; }
+.insights__header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 24px; }
+.insights__title { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; }
+.insights__subtitle { font-size: 13px; color: var(--text-secondary); margin-top: 2px; }
+
+/* Grid */
+.insights__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+.insights__section--full { grid-column: 1 / -1; }
+.insights__card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 20px; }
+.insights__card-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+.insights__card-header h3 { font-size: 15px; font-weight: 600; color: var(--text-primary); display: flex; align-items: center; gap: 8px; }
+.insights__card-badge { font-size: 10px; font-weight: 600; color: var(--accent-primary); background: color-mix(in srgb, var(--accent-primary) 10%, transparent); padding: 3px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px; }
+
+/* Chart */
+.insights__chart { margin-top: 8px; }
+
+/* Tag / emotion bars */
+.insights__emotion-bars { display: flex; flex-direction: column; gap: 10px; }
+.insights__emotion-row { display: flex; align-items: center; gap: 10px; }
+.insights__emotion-label { font-size: 12px; font-weight: 500; color: var(--text-secondary); width: 90px; flex-shrink: 0; text-align: right; }
+.insights__emotion-track { flex: 1; height: 8px; background: rgba(255,255,255,0.04); border-radius: 4px; overflow: hidden; }
+.insights__emotion-fill { height: 100%; border-radius: 4px; transition: width 0.5s ease; }
+.insights__emotion-pct { font-size: 11px; color: var(--text-muted); width: 36px; flex-shrink: 0; }
+
+/* Pattern stats */
+.insights__pattern-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.insights__pattern-stat { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 16px 10px; background: rgba(255,255,255,0.02); border-radius: var(--radius-md); border: 1px solid var(--border-color); }
+.insights__pattern-value { font-size: 22px; font-weight: 800; color: var(--text-primary); line-height: 1; }
+.insights__pattern-label { font-size: 11px; color: var(--text-muted); text-align: center; }
+
+/* Tag cloud */
+.insights__tag-cloud { display: flex; flex-wrap: wrap; gap: 6px; }
+.insights__ai-tag { display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 600; background: color-mix(in srgb, var(--tag-color) 15%, transparent); color: var(--tag-color); }
+
+/* Course breakdown grid */
+.insights__course-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
+.insights__course-card { display: flex; flex-direction: column; gap: 10px; padding: 14px; background: rgba(255,255,255,0.02); border-radius: var(--radius-md); border: 1px solid var(--border-color); }
+.insights__course-card-header { display: flex; align-items: center; gap: 10px; }
+.insights__course-icon { width: 32px; height: 32px; border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+.insights__course-name { font-size: 13px; font-weight: 600; color: var(--text-primary); }
+.insights__course-stats { display: flex; gap: 12px; font-size: 11px; color: var(--text-muted); }
+.insights__course-stats strong { color: var(--text-primary); font-weight: 700; }
+.insights__course-progress { display: flex; align-items: center; gap: 8px; }
+.insights__course-progress-track { flex: 1; height: 6px; background: rgba(255,255,255,0.06); border-radius: 3px; overflow: hidden; }
+.insights__course-progress-fill { height: 100%; border-radius: 3px; }
+.insights__course-progress-pct { font-size: 11px; font-weight: 700; color: var(--text-primary); width: 32px; text-align: right; }
+
+/* AI Analysis section */
+.insights__ai-analysis { display: flex; flex-direction: column; gap: 16px; }
+.insights__ai-block {
+  padding: 16px; border-radius: var(--radius-md);
+  background: rgba(255,255,255,0.02); border: 1px solid var(--border-color);
+}
+.insights__ai-block-header { margin-bottom: 12px; }
+.insights__ai-block-title { font-size: 13px; font-weight: 600; color: var(--text-primary); display: block; margin-bottom: 2px; }
+.insights__ai-block-desc { font-size: 11px; color: var(--text-muted); }
+.insights__ai-result {
+  font-size: 13px; color: var(--text-secondary); line-height: 1.65;
+  white-space: pre-wrap; padding: 12px 14px;
+  background: rgba(129,140,248,0.04); border-radius: var(--radius-sm);
+  border-left: 3px solid var(--accent-primary);
+}

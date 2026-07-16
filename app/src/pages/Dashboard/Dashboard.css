@@ -1,0 +1,107 @@
+/* ============================================
+   Dashboard — Today View
+   ============================================ */
+
+.dashboard { position: relative; z-index: 1; max-width: 1200px; }
+
+/* Header */
+.dashboard__header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 28px; }
+.dashboard__title { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; color: var(--text-primary); margin-bottom: 4px; }
+.dashboard__subtitle { font-size: 14px; color: var(--text-secondary); }
+.dashboard__header-actions { display: flex; gap: 10px; }
+
+/* Stats */
+.dashboard__stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px; }
+.stat-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 18px 20px; display: flex; flex-direction: column; gap: 12px; position: relative; overflow: hidden; }
+.stat-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; }
+.stat-card--indigo::before { background: var(--accent-gradient); }
+.stat-card--emerald::before { background: linear-gradient(90deg, #34d399, #10b981); }
+.stat-card--amber::before { background: linear-gradient(90deg, #fbbf24, #f59e0b); }
+.stat-card--rose::before { background: linear-gradient(90deg, #f87171, #ef4444); }
+.stat-card__icon { width: 40px; height: 40px; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; }
+.stat-card--indigo .stat-card__icon { background: color-mix(in srgb, var(--accent-primary) 12%, transparent); color: var(--accent-primary); }
+.stat-card--emerald .stat-card__icon { background: rgba(52,211,153,0.12); color: #34d399; }
+.stat-card--amber .stat-card__icon { background: rgba(251,191,36,0.12); color: #fbbf24; }
+.stat-card--rose .stat-card__icon { background: rgba(248,113,113,0.12); color: #f87171; }
+.stat-card__value { font-size: 26px; font-weight: 800; color: var(--text-primary); line-height: 1; }
+.stat-card__label { font-size: 12px; color: var(--text-muted); font-weight: 500; }
+.stat-card__change { font-size: 11px; color: var(--text-secondary); padding: 3px 8px; background: rgba(255,255,255,0.04); border-radius: 20px; width: fit-content; }
+
+/* Cards (shared) */
+.card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 20px; }
+.card__header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+.card__header h3 { font-size: 15px; font-weight: 600; color: var(--text-primary); display: flex; align-items: center; gap: 8px; }
+.card__badge { font-size: 11px; font-weight: 500; color: var(--accent-primary); background: color-mix(in srgb, var(--accent-primary) 10%, transparent); padding: 3px 10px; border-radius: 20px; }
+.card__link { font-size: 12px; color: var(--accent-primary); display: flex; align-items: center; gap: 2px; transition: opacity var(--transition-fast); cursor: pointer; background: none; border: none; }
+.card__link:hover { opacity: 0.8; }
+
+/* Two-column duo layout */
+.dashboard__duo { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
+
+/* Chart */
+.dashboard__chart { margin-top: 8px; }
+
+/* Empty states */
+.dashboard__empty-hint { font-size: 12px; color: var(--text-muted); padding: 20px; text-align: center; }
+.dashboard__empty-today { display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 24px 0; color: var(--text-muted); }
+.dashboard__empty-today p { font-size: 13px; margin: 0; }
+
+/* Finance hint */
+.dashboard__finance-hint {
+  display: flex; align-items: flex-start; gap: 8px;
+  padding: 10px 12px;
+  background: color-mix(in srgb, #34d399 6%, transparent);
+  border: 1px dashed color-mix(in srgb, #34d399 25%, transparent);
+  border-radius: var(--radius-md); color: #34d399; font-size: 11px;
+  cursor: pointer; transition: background var(--transition-fast);
+}
+.dashboard__finance-hint:hover { background: color-mix(in srgb, #34d399 12%, transparent); }
+
+/* AI hint */
+.dashboard__ai-hint {
+  display: flex; align-items: flex-start; gap: 8px;
+  margin-top: 12px; padding: 10px 12px;
+  background: color-mix(in srgb, var(--accent-primary) 6%, transparent);
+  border: 1px dashed color-mix(in srgb, var(--accent-primary) 25%, transparent);
+  border-radius: var(--radius-md); color: var(--accent-primary); font-size: 11px;
+}
+.dashboard__ai-hint-title { display: block; font-weight: 700; font-size: 10px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2px; }
+.dashboard__ai-hint-text { display: block; color: var(--text-secondary); line-height: 1.4; }
+
+/* Recent entries */
+.dashboard__entries-list { display: flex; flex-direction: column; gap: 2px; }
+.dashboard__entry-item { display: flex; align-items: center; gap: 12px; padding: 10px 12px; border-radius: var(--radius-md); transition: background var(--transition-fast); cursor: pointer; }
+.dashboard__entry-item:hover { background: rgba(255,255,255,0.03); }
+.dashboard__entry-icon { width: 32px; height: 32px; border-radius: var(--radius-sm); background: color-mix(in srgb, var(--accent-primary) 8%, transparent); color: var(--accent-primary); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.dashboard__entry-info { flex: 1; display: flex; flex-direction: column; min-width: 0; }
+.dashboard__entry-title { font-size: 13px; font-weight: 600; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.dashboard__entry-meta { font-size: 11px; color: var(--text-muted); display: flex; align-items: center; gap: 4px; }
+
+/* Tags (shared) */
+.tag { display: inline-block; padding: 1px 6px; border-radius: 4px; font-size: 10px; font-weight: 600; background: color-mix(in srgb, var(--accent-primary) 12%, transparent); color: var(--accent-primary); }
+.tag--small { font-size: 9px; padding: 1px 5px; }
+
+/* Milestones */
+.dashboard__milestones-list { display: flex; flex-direction: column; gap: 4px; }
+.dashboard__milestone-item { display: flex; align-items: center; gap: 12px; padding: 12px; border-radius: var(--radius-md); transition: background var(--transition-fast); cursor: pointer; }
+.dashboard__milestone-item:hover { background: rgba(255,255,255,0.03); }
+.dashboard__milestone-status { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+.dashboard__milestone-status--in-progress { background: var(--warning); box-shadow: 0 0 8px rgba(251,191,36,0.3); }
+.dashboard__milestone-status--upcoming { background: var(--text-muted); border: 2px solid rgba(255,255,255,0.1); }
+.dashboard__milestone-info { display: flex; flex-direction: column; }
+.dashboard__milestone-title { font-size: 13px; font-weight: 600; color: var(--text-primary); }
+.dashboard__milestone-meta { font-size: 11px; color: var(--text-muted); }
+.dashboard__milestone-urgent { width: 20px; height: 20px; border-radius: 50%; background: rgba(248,113,113,0.15); color: #f87171; font-size: 12px; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+
+/* Course list */
+.dashboard__course-list { display: flex; flex-direction: column; gap: 8px; }
+.dashboard__course-row { display: flex; align-items: center; gap: 12px; padding: 10px 12px; border-radius: var(--radius-md); transition: background var(--transition-fast); }
+.dashboard__course-row:hover { background: rgba(255,255,255,0.03); }
+.dashboard__course-icon { width: 32px; height: 32px; border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+.dashboard__course-info { flex: 1; display: flex; flex-direction: column; min-width: 0; }
+.dashboard__course-name { font-size: 13px; font-weight: 600; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.dashboard__course-meta { font-size: 11px; color: var(--text-muted); }
+.dashboard__course-progress { display: flex; align-items: center; gap: 8px; flex-shrink: 0; width: 100px; }
+.dashboard__course-progress-track { flex: 1; height: 6px; background: rgba(255,255,255,0.06); border-radius: 3px; overflow: hidden; }
+.dashboard__course-progress-fill { height: 100%; border-radius: 3px; transition: width 0.6s ease; }
+.dashboard__course-progress-pct { font-size: 11px; font-weight: 700; color: var(--text-primary); width: 32px; text-align: right; }
